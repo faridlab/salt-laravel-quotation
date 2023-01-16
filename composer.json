@@ -1,0 +1,61 @@
+{
+  "name": "faridlab/salt-laravel-quotation",
+  "description": "",
+  "keywords": ["Laravel"],
+  "authors": [
+    {
+      "name": "Farid Hidayat",
+      "email": "farid@startapp.id"
+    }
+  ],
+  "homepage": "https://github.com/faridlab/salt-laravel-quotation",
+  "require": {
+    "php": "^8.0.2",
+    "doctrine/dbal": "^3.3",
+    "faridlab/laravel-search-query": "^9.0",
+    "faridlab/salt-laravel": "dev-main",
+    "faridlab/salt-laravel-contacts": "dev-main",
+    "faridlab/salt-laravel-organization": "dev-main"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "orchestra/testbench": "^6.0",
+    "phpstan/phpstan": "^0.12"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "SaltQuotation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SaltQuotation\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SaltQuotation\\Providers\\SaltQuotationServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit -c ./phpunit.xml --colors=always",
+    "analysis": "vendor/bin/phpstan analyse"
+  },
+  "repositories": [
+      {
+          "type": "path",
+          "url": "~/Unicorns/startapp/frameworks/salt-laravel-core"
+      },
+      {
+          "type": "path",
+          "url": "~/Unicorns/startapp/frameworks/salt-laravel-contacts"
+      },
+      {
+          "type": "path",
+          "url": "~/Unicorns/startapp/frameworks/salt-laravel-organization"
+      }
+  ]
+}
