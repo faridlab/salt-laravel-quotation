@@ -39,4 +39,30 @@ Route::middleware(['api'])
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("quotations/categories/{id}", [CategoriesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
 
+
+    // API: PROPOSAL ITEMS
+    // TODO: this should use nesting route
+    Route::get("quotations/items", [ItemsController::class, 'index'])->middleware(['auth:api']); // get entire collection
+    Route::post("quotations/items", [ItemsController::class, 'store'])->middleware(['auth:api']); // create new collection
+
+    Route::get("quotations/items/trash", [ItemsController::class, 'trash'])->middleware(['auth:api']); // trash of collection
+
+    Route::post("quotations/items/import", [ItemsController::class, 'import'])->middleware(['auth:api']); // import collection from external
+    Route::post("quotations/items/export", [ItemsController::class, 'export'])->middleware(['auth:api']); // export entire collection
+    Route::get("quotations/items/report", [ItemsController::class, 'report'])->middleware(['auth:api']); // report collection
+
+    Route::get("quotations/items/{id}/trashed", [ItemsController::class, 'trashed'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // get collection by ID from trash
+
+    // RESTORE data by ID (id), selected IDs (selected), and All data (all)
+    Route::post("quotations/items/{id}/restore", [ItemsController::class, 'restore'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // restore collection by ID
+
+    // DELETE data by ID (id), selected IDs (selected), and All data (all)
+    Route::delete("quotations/items/{id}/delete", [ItemsController::class, 'delete'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // hard delete collection by ID
+
+    Route::get("quotations/items/{id}", [ItemsController::class, 'show'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // get collection by ID
+    Route::put("quotations/items/{id}", [ItemsController::class, 'update'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // update collection by ID
+    Route::patch("quotations/items/{id}", [ItemsController::class, 'patch'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // patch collection by ID
+    // DESTROY data by ID (id), selected IDs (selected), and All data (all)
+    Route::delete("quotations/items/{id}", [ItemsController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
+
 });
