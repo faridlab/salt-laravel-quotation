@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proposal_section_items', function (Blueprint $table) {
+        Schema::create('quotation_section_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('proposal_id')->references('id')->on('proposals');
-            $table->foreignUuid('item_id')->references('id')->on('proposal_items');
+            $table->foreignUuid('quotation_id')->references('id')->on('quotations');
+            $table->foreignUuid('item_id')->references('id')->on('quotation_items');
 
             $table->json('data')->nullable();
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proposal_section_items');
+        Schema::dropIfExists('quotation_section_items');
     }
 };

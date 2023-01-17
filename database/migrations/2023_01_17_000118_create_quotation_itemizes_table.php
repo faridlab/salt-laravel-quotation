@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proposal_itemizes', function (Blueprint $table) {
+        Schema::create('quotation_itemizes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('category_id')->nullable()->references('id')->on('sysparams');
             $table->foreignUuid('industry_id')->nullable()->references('id')->on('organization_industries');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proposal_itemizes');
+        Schema::dropIfExists('quotation_itemizes');
     }
 };

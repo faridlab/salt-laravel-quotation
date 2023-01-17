@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proposal_sections', function (Blueprint $table) {
+        Schema::create('quotation_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('proposal_id')->references('id')->on('proposals');
+            $table->foreignUuid('quotation_id')->references('id')->on('quotations');
 
             $table->text('title');
             $table->text('description')->nullable();
             $table->json('data')->nullable();
-
-            $table->tinyInteger('order');
 
             $table->timestamps();
             $table->softDeletes();
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proposal_sections');
+        Schema::dropIfExists('quotation_items');
     }
 };
