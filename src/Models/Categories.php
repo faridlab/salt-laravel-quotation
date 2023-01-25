@@ -38,7 +38,7 @@ class Categories extends Resources {
     ];
 
     protected $attributes = array(
-        'group' => 'proposal_categories'
+        'group' => 'quotation_categories'
     );
 
     protected $rules = array(

@@ -102,8 +102,8 @@ class CategoriesController extends Controller
 
         try {
 
-            $count = $this->model->where('group', 'proposal_categories')->count();
-            $model = $this->model->where('group', 'proposal_categories')->filter();
+            $count = $this->model->where('group', 'quotation_categories')->count();
+            $model = $this->model->where('group', 'quotation_categories')->filter();
 
             $format = $request->get('format', 'default');
 

@@ -15,7 +15,7 @@ use SaltLaravel\Traits\Uuids;
 
 class SectionItems extends Resources {
 
-    protected $table = 'proposal_section_items';
+    protected $table = 'quotation_section_items';
 
     use Uuids;
     use ObservableModel;
@@ -29,13 +29,13 @@ class SectionItems extends Resources {
         'orderby',
         // Fields table provinces
         'id',
-        'proposal_id',
+        'quotation_id',
         'item_id',
         'data',
     ];
 
     protected $rules = array(
-        'proposal_id' => 'required|string',
+        'quotation_id' => 'required|string',
         'item_id' => 'required|string',
         'data' => 'nullable|json',
     );
@@ -59,13 +59,13 @@ class SectionItems extends Resources {
     protected $forms = array();
     protected $structures = array();
     protected $searchable = array(
-        'proposal_id',
+        'quotation_id',
         'item_id',
         'data',
     );
 
     protected $fillable = array(
-        'proposal_id',
+        'quotation_id',
         'item_id',
         'data',
     );

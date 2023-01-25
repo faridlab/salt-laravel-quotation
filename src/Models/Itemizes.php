@@ -15,7 +15,7 @@ use SaltLaravel\Traits\Uuids;
 
 class Itemizes extends Resources {
 
-    protected $table = 'proposal_itemizes';
+    protected $table = 'quotation_itemizes';
 
     use Uuids;
     use ObservableModel;
